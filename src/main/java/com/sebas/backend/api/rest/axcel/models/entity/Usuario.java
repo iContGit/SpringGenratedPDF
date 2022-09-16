@@ -1,5 +1,5 @@
 package com.sebas.backend.api.rest.axcel.models.entity;
-
+// comentario
 import java.io.Serializable;
 import java.util.Date;
 
