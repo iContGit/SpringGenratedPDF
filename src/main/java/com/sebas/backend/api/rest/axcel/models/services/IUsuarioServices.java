@@ -16,6 +16,8 @@ public interface IUsuarioServices {
 	
 	public List<Usuario> findByName(String nombre);
 	
+	public List<Usuario> findByCedula(String nombre);
+	
 	
 	public Usuario save(Usuario usuario);
 	

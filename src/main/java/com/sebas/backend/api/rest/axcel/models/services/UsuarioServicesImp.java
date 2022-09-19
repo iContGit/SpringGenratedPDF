@@ -47,6 +47,13 @@ public class UsuarioServicesImp implements IUsuarioServices{
 		user.add(usuarioDao.findByNombre(nombre).orElse(null));
 		return user;
 	}
+	@Override
+	public List<Usuario> findByCedula(String cedula) {
+		ArrayList<Usuario> user = new ArrayList<>();
+		user.add(usuarioDao.findByCedula(cedula).orElse(null));
+		return user;
+	}
+	
 	
 
 }

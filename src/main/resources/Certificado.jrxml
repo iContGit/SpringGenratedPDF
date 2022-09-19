@@ -12,6 +12,7 @@
 	<field name="salario" class="java.lang.String"/>
 	<field name="ciudad" class="java.lang.String"/>
 	<field name="tipoContrato" class="java.lang.String"/>
+	<field name="cedula" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -60,8 +61,8 @@
 				<text><![CDATA[identificado con cedula de ciudadania ]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="340" y="30" width="60" height="18" uuid="63415a57-aa1e-4f0f-8396-883f2deff7a0"/>
-				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+				<reportElement x="330" y="31" width="60" height="18" uuid="63415a57-aa1e-4f0f-8396-883f2deff7a0"/>
+				<textFieldExpression><![CDATA[$F{cedula}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="70" y="49" width="230" height="20" uuid="bb7c919c-90a6-4bbe-9e37-2e3396001560"/>
@@ -72,7 +73,7 @@
 				<textFieldExpression><![CDATA[$F{fechaIngreso}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="380" y="30" width="180" height="20" uuid="419aaff4-614a-4cbc-8a11-8283d4ea1d35"/>
+				<reportElement x="400" y="30" width="180" height="20" uuid="419aaff4-614a-4cbc-8a11-8283d4ea1d35"/>
 				<text><![CDATA[expedida en el municipio de]]></text>
 			</staticText>
 			<textField>

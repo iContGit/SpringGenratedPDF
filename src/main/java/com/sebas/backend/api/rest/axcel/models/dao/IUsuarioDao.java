@@ -9,6 +9,9 @@ import com.sebas.backend.api.rest.axcel.models.entity.Usuario;
 public interface IUsuarioDao extends CrudRepository<Usuario, Long> {
 	
 	Optional<Usuario> findByNombre(String nombre);
+	Optional<Usuario> findByCedula(String nombre);
+	
+	
 	
 
 }

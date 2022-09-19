@@ -56,7 +56,7 @@ public class UsuarioRestController {
 		return iUsuarioServices.findByNombre(nombre);
 	}
 	
-	@GetMapping("/usuarios/{nombre}/pdf")
+	@GetMapping("/usuarios/{nombre}/pdf/")
 	@ResponseStatus(HttpStatus.OK)
 	public String showPdf(@PathVariable String nombre) throws Exception, JRException {
 		//iUsuarioServices.findByNombre(nombre);
@@ -67,6 +67,18 @@ public class UsuarioRestController {
 		JasperPrint report =JasperFillManager.fillReport(jas, map,Jrbean);
 		JasperExportManager.exportReportToPdfFile(report, "certificado.pdf");
 		return "generated";
+	}
+	
+	@GetMapping("/usuarios/{cedula}/pdp/")
+	@ResponseStatus(HttpStatus.OK)
+	public String showPdfced(@PathVariable String cedula)throws Exception, JRException{
+		JRBeanCollectionDataSource Jrbean = new JRBeanCollectionDataSource(iUsuarioServices.findByCedula(cedula));
+		JasperReport jas = JasperCompileManager.compileReport(new FileInputStream("src/main/resources/Certificado.jrxml"));
+		HashMap<String, Object> map = new  HashMap<>();
+		JasperPrint report =JasperFillManager.fillReport(jas, map,Jrbean);
+		JasperExportManager.exportReportToPdfFile(report, "certificado.pdf");		
+		return "generated";
+		
 	}
 	
 	@PostMapping("/usuarios")
@@ -112,6 +124,7 @@ public class UsuarioRestController {
 	public Usuario update(@RequestBody Usuario usuario, @PathVariable String nombre) {
 		Usuario usuarioActual = iUsuarioServices.findByNombre(nombre);
 		
+		usuarioActual.setCedula(usuario.getCedula());
 		usuarioActual.setArl(usuario.getArl());
 		usuarioActual.setCargo(usuario.getCargo());
 		usuarioActual.setCiudad(usuario.getCiudad());

@@ -20,6 +20,8 @@ public class Usuario implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Column(name="nro_cedula")
+	private String cedula;
 	private String nombre;
 	@Column(name="fecha_nac")
 	@Temporal(TemporalType.DATE)
@@ -215,5 +217,15 @@ public class Usuario implements Serializable {
 	}
 	
 	
+	
+	public String getCedula() {
+		return cedula;
+	}
+	public void setCedula(String cedula) {
+		this.cedula = cedula;
+	}
+
+
+
 	private static final long serialVersionUID = 1L;
 }
