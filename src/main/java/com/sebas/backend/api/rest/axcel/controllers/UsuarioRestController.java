@@ -32,6 +32,7 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.util.JRStringUtil;
 import net.sf.jasperreports.engine.util.JRValueStringUtils;
+import net.sf.jasperreports.view.JasperViewer;
 
 @RestController
 @RequestMapping("/api")
@@ -75,11 +76,16 @@ public class UsuarioRestController {
 		JRBeanCollectionDataSource Jrbean = new JRBeanCollectionDataSource(iUsuarioServices.findByCedula(cedula));
 		JasperReport jas = JasperCompileManager.compileReport(new FileInputStream("src/main/resources/Certificado.jrxml"));
 		HashMap<String, Object> map = new  HashMap<>();
-		JasperPrint report =JasperFillManager.fillReport(jas, map,Jrbean);
-		JasperExportManager.exportReportToPdfFile(report, "certificado.pdf");		
+		JasperPrint report =JasperFillManager.fillReport(jas, map,Jrbean);		
+		JasperExportManager.exportReportToPdfFile(report, "C:\\Users\\iCont\\Documents\\Certificados\\certificado"+".pdf");		
+		
 		return "generated";
 		
+		
 	}
+	
+	
+	
 	
 	@PostMapping("/usuarios")
 	@ResponseStatus(HttpStatus.CREATED)
